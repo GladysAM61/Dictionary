@@ -3,6 +3,7 @@ var button = document.getElementById("check")
 var divvv = document.getElementById("divv")
 var informationcontainer = document.getElementById("div2")
 var pElement = document.getElementById("p")
+// var defbox = document.getElementById("Div")
 
 // adding all the dictionary words inside of a function
 const dictionary = {
@@ -68,18 +69,30 @@ const dictionary = {
 
 function check(){
     var inp = input.value;
+    // innerHtml thing to clear the previous definition and part of speech
+    informationcontainer.innerHTML = "";
     if (dictionary.hasOwnProperty(inp)){
       let wordEntry = dictionary[inp];
-      let pElement = dictionary[Array];
-      informationcontainer.append(wordEntry);
-      informationcontainer.append(pElement);
-      console.log(wordEntry);
+    //   let def = defenitions inside of the object wordEntry
+      let def= wordEntry.definitions;
+      pElement.innerText="Part of speech: ";
+      pElement.append((wordEntry.partofspeech))
+      informationcontainer.appendChild(pElement);
+    // creating a for loop to put the definitions and so it could be numbered
+     for(let i = 0; i < def.length; i++){
+       let newp = document.createElement("p");
+       newp.innerText = i+1 + "." + def[i];
+       console.log(def[i])
+       informationcontainer.append(newp)
+     }
     }
     else{
-       check.innertext="The word is not found on the dictionary.Try again!"
+       pElement.innerText="The word is not found on the dictionary.Try again!";
+       informationcontainer.appendChild(pElement);
        console.log("word is not in dictionary");
     }
-    
+    // allowing me to style the div using css
+    informationcontainer.classList.add("informationdiv")
 }
 
 button.addEventListener("click",check);
