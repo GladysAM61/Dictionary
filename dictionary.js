@@ -65,10 +65,8 @@ const dictionary = {
     }
 }
 
-
-
 function check(){
-    var inp = input.value;
+    var inp = input.value.toLowerCase();
     // innerHtml thing to clear the previous definition and part of speech
     informationcontainer.innerHTML = "";
     if (dictionary.hasOwnProperty(inp)){
@@ -95,6 +93,6 @@ function check(){
     informationcontainer.classList.add("informationdiv")
 }
 
+
 button.addEventListener("click",check);
 
-// 

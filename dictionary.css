@@ -32,10 +32,9 @@ input {
     border:1mm solid rgb(237, 120, 140);
     border-radius: 1.5vh;
 }
-/* .informationdiv{
+.Div{
   border: none;
- 
 }
-p{
-  border: solid black;
-} */
+.div2{
+  border: none;
+}
